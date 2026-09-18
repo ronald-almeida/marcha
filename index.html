@@ -111,7 +111,7 @@ body{display:flex;justify-content:center}
         <div class="step-title"><span class="step-number">03</span><span class="step-name">Pagamento</span></div>
         <div class="rule"></div>
         <div class="payment-choice">
-          <svg viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M144 64c8.8 0 16 7.2 16 16v96c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16V80c0-8.8 7.2-16 16-16h96zM48 32C21.5 32 0 53.5 0 80v96c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48H48zM160 336v96c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16v-96c0-8.8 7.2-16 16-16h96c8.8 0 16 7.2 16 16zM48 288c-26.5 0-48 21.5-48 48v96c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48v-96c0-26.5-21.5-48-48-48H48zM304 64h96c8.8 0 16 7.2 16 16v96c0 8.8-7.2 16-16 16h-96c-8.8 0-16-7.2-16-16V80c0-8.8 7.2-16 16-16z"/></svg>
+          <svg width="1.2em" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="qrcode" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon svg-inline--fa fa-qrcode fa-w-14"><path fill="currentColor" d="M0 224h192V32H0v192zM64 96h64v64H64V96zm192-64v192h192V32H256zm128 128h-64V96h64v64zM0 480h192V288H0v192zm64-128h64v64H64v-64zm352-64h32v128h-96v-32h-32v96h-64V288h96v32h64v-32zm0 160h32v32h-32v-32zm-64 0h32v32h-32v-32z" class=""></path></svg>
           <span>Pix</span>
         </div>
         <div class="payment-copy">Ao clicar em “Gerar Pix” será gerado um QR Code e um código Pix Copia e Cola para você realizar o pagamento.</div>
@@ -137,6 +137,34 @@ document.getElementById('toAddress').onclick=()=>{try{const c=customer();documen
 document.getElementById('toPayment').onclick=()=>{try{address();show('step3')}catch(e){alert(e.message)}};
 document.getElementById('back1').onclick=()=>show('step1');
 document.getElementById('back2').onclick=()=>show('step2');
+const step1Required=['name','email','phone','taxId'].map(id=>document.getElementById(id));
+const step2Required=['zipCode','address','number','city','neighborhood','state'].map(id=>document.getElementById(id));
+const toAddressButton=document.getElementById('toAddress');
+const toPaymentButton=document.getElementById('toPayment');
+
+function step1IsValid(){
+  const name=document.getElementById('name').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const phone=digits(document.getElementById('phone').value);
+  const taxId=digits(document.getElementById('taxId').value);
+  return !!name && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && phone.length>=10 && phone.length<=11 && (taxId.length===11 || taxId.length===14);
+}
+function step2IsValid(){
+  const zipCode=digits(document.getElementById('zipCode').value);
+  const address=document.getElementById('address').value.trim();
+  const number=document.getElementById('number').value.trim();
+  const city=document.getElementById('city').value.trim();
+  const neighborhood=document.getElementById('neighborhood').value.trim();
+  const state=document.getElementById('state').value;
+  return zipCode.length===8 && !!address && !!number && !!city && !!neighborhood && !!state;
+}
+function updateStepButtons(){
+  toAddressButton.classList.toggle('ready',step1IsValid());
+  toPaymentButton.classList.toggle('ready',step2IsValid());
+}
+step1Required.forEach(el=>{el.addEventListener('input',updateStepButtons);el.addEventListener('change',updateStepButtons)});
+step2Required.forEach(el=>{el.addEventListener('input',updateStepButtons);el.addEventListener('change',updateStepButtons)});
+updateStepButtons();
 const modal=document.getElementById('pixModal'),qr=document.getElementById('qr'),pixCode=document.getElementById('pixCode'),feedback=document.getElementById('feedback'),payButton=document.getElementById('payButton');
 payButton.onclick=async()=>{const original=payButton.textContent;try{feedback.textContent='';payButton.disabled=true;payButton.textContent='Gerando Pix...';const body={...customer(),address:address()};const r=await fetch('/api/create-pix',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const data=await r.json().catch(()=>({}));if(!r.ok)throw new Error(data.error||'Não foi possível gerar o Pix.');pixCode.value=data.copypaste;qr.innerHTML='<img src="'+data.qrCode+'" alt="QR Code Pix">';modal.classList.add('open');modal.setAttribute('aria-hidden','false')}catch(e){feedback.textContent=e.message||'Erro ao gerar Pix.'}finally{payButton.disabled=false;payButton.textContent=original}};
 document.getElementById('closeModal').onclick=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true')};
