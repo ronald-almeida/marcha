@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Pós-Graduação em Fisioterapia Neurofuncional | Checkout</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Nunito,serif;background:#f7f7f8;color:#0f172a}
+body{display:flex;justify-content:center}
+.page{width:min(100%,450px);min-height:100vh;background:#f7f7f8}
+.topbar{height:58px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 24px;box-shadow:0 2px 10px rgba(15,23,42,.12);position:sticky;top:0;z-index:5}
+.topbar img{height:28px;width:auto;object-fit:contain}
+.dots{display:flex;gap:7px}.dots span{width:10px;height:10px;border-radius:50%;background:#cfe0ef}.dots span:first-child{background:#082d6e}
+.content{padding:20px 30px 28px}
+.summary{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 3px 14px rgba(15,23,42,.13);margin-bottom:28px}
+.secure{background:#082d6e;color:#fff;font-weight:800;padding:12px 16px;display:flex;align-items:center;gap:8px;font-size:16px}
+.secure svg{width:15px;height:15px}
+.product{padding:16px 16px 18px}
+.product-main{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:start}
+.product-img{width:120px;height:120px;border-radius:8px;object-fit:cover;background:#08182f}
+.product h1{font-size:20px;line-height:1.05;margin:12px 0 14px;font-weight:900;color:#020617}
+.price{font-size:18px;font-weight:800}
+.meta{margin-top:34px;font-size:14px;line-height:1.45}.meta strong{display:block;margin-top:14px;margin-bottom:4px}
+.card{background:#fff;border-radius:7px;box-shadow:0 3px 14px rgba(15,23,42,.10);padding:18px 16px 24px}
+.back{border:0;background:transparent;font:14px Nunito,serif;cursor:pointer;padding:0 0 14px;color:#111}
+.step-title{display:flex;align-items:center;justify-content:center;gap:18px;font-weight:800;margin:0 0 12px}
+.step-number{font-size:20px;color:#082d6e;font-weight:900}.step-name{font-size:15px}
+.rule{height:1px;background:#e5e7eb;margin-bottom:18px}
+.country{width:130px;margin:0 auto 18px;background:#fff;display:flex;align-items:center;justify-content:center;gap:7px;font-size:11px}
+.flag{width:18px;height:13px;background:#169b62;position:relative;overflow:hidden}.flag:before{content:"";position:absolute;width:11px;height:11px;background:#ffdf00;left:3px;top:1px;transform:rotate(45deg) scale(.72)}.flag:after{content:"";position:absolute;width:6px;height:6px;background:#002776;border-radius:50%;left:6px;top:3px}
+.field-group{margin-bottom:12px}.field-group label{display:block;font-size:12px;margin-bottom:6px}.field{width:100%;height:42px;border:1px solid #d7dce3;border-radius:3px;padding:0 12px;font:13px Nunito,serif;outline:none;background:#fff}.field:focus{border-color:#2e69b7;box-shadow:0 0 0 1px #2e69b7}.phone{display:flex;border:1px solid #d7dce3;border-radius:3px;height:42px}.phone-prefix{display:flex;align-items:center;gap:6px;padding:0 10px;border-right:1px solid #e5e7eb;font-size:12px}.phone input{border:0;outline:none;flex:1;padding:0 12px;font:13px Nunito,serif;min-width:0}
+.payer-check{display:flex;align-items:center;gap:7px;font-size:12px;margin:12px 0}.payer-note{background:#f6f7f9;padding:12px 13px;border-radius:3px;font-size:11px;line-height:1.4;margin-bottom:34px}
+.next,.buy{width:100%;height:40px;border:0;border-radius:999px;background:#aeb7c5;color:#fff;font:800 14px Nunito,serif;cursor:pointer}.next.ready,.buy{background:#2f69b7}
+.legal{font-size:10px;line-height:1.5;margin-top:12px;color:#111}.safe-note{display:flex;align-items:center;gap:7px;font-size:11px;margin-top:14px}.safe-note svg{width:13px;height:13px;fill:#082d6e}
+.view{display:none}.view.active{display:block}
+.payment-choice{width:56px;height:61px;border:1px solid #082d6e;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#082d6e;font-size:11px;margin:8px 0 24px}.payment-choice svg{width:18px;height:18px}
+.payment-copy{text-align:center;font-size:11px;line-height:1.45;margin:0 6px 18px}
+.feedback{min-height:18px;color:#b42318;text-align:center;font-size:11px;margin-top:8px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.68);display:none;align-items:center;justify-content:center;padding:18px;z-index:20}.modal.open{display:flex}.modal-card{width:min(100%,420px);background:#fff;border-radius:14px;padding:22px;position:relative;box-shadow:0 20px 70px rgba(0,0,0,.35)}.close{position:absolute;right:12px;top:8px;border:0;background:transparent;font-size:28px;color:#64748b;cursor:pointer}.modal-card h2{font-size:20px;margin:0 30px 8px}.modal-card p{font-size:12px;color:#64748b}.qr{display:flex;justify-content:center;margin:12px 0}.qr img{width:230px;height:230px}.pix-code{width:100%;height:82px;border:1px solid #d7dce3;border-radius:6px;padding:10px;resize:none;font-size:11px}.copy{width:100%;height:44px;border:0;border-radius:6px;background:#2f69b7;color:#fff;font-weight:800;margin-top:10px;cursor:pointer}
+.footer{font-size:10px;text-align:center;color:#4b5563;padding:8px 18px 18px}
+@media(max-width:380px){.content{padding:16px}.product-main{grid-template-columns:100px 1fr}.product-img{width:100px;height:100px}.product h1{font-size:17px}}
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="topbar">
+    <img src="./voomp-logo.png" alt="Voomp Anhanguera">
+    <div class="dots"><span></span><span></span><span></span></div>
+  </header>
+
+  <div class="content">
+    <section class="summary">
+      <div class="secure">
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l7 3v6c0 5-3 9-7 11-4-2-7-6-7-11V5l7-3zm0 3.2L7 7.3V11c0 3.7 2 6.7 5 8.5 3-1.8 5-4.8 5-8.5V7.3l-5-2.1z"/></svg>
+        COMPRA 100% SEGURA
+      </div>
+      <div class="product">
+        <div class="product-main">
+          <img class="product-img" src="./product-cover.png" alt="Pós-Graduação em Fisioterapia Neurofuncional">
+          <div>
+            <h1>PÓS-GRADUAÇÃO EM FISIOTERAPIA NEUROFUNCIONAL APLICADA AO PACIENTE ADULTO E IDOSO</h1>
+            <div class="price">R$ 597,00</div>
+          </div>
+        </div>
+        <div class="meta">
+          <strong>Autor</strong>
+          BRAIN YOURSELF
+          <strong>E-mail</strong>
+          <span id="summaryEmail">seuemail@exemplo.com</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div id="step1" class="view active">
+        <div class="step-title"><span class="step-number">01</span><span class="step-name">Dados pessoais</span></div>
+        <div class="rule"></div>
+        <div class="country"><span class="flag"></span>Alterar país <span>⌄</span></div>
+        <div class="field-group"><label>Nome completo do aluno</label><input id="name" class="field" placeholder="Digite seu nome completo" autocomplete="name"></div>
+        <div class="field-group"><label>E-mail</label><input id="email" class="field" type="email" placeholder="E-mail que receberá o produto" autocomplete="email"></div>
+        <div class="field-group"><label>Telefone</label><div class="phone"><span class="phone-prefix"><span class="flag"></span>+55⌄</span><input id="phone" type="tel" placeholder="Número do telefone *" autocomplete="tel"></div></div>
+        <div class="field-group"><label>CPF do Aluno</label><input id="taxId" class="field" inputmode="numeric" placeholder="Informe o CPF do Aluno"></div>
+        <label class="payer-check"><input type="checkbox">Dados do Pagador</label>
+        <div class="payer-note">Preencha os dados do pagador apenas se for diferente do aluno.</div>
+        <button id="toAddress" class="next" type="button">Próxima etapa</button>
+        <div class="legal">Ao clicar em “Comprar agora”, eu concordo com o processamento desta compra e com os termos de uso e política de privacidade aplicáveis.</div>
+        <div class="safe-note"><svg viewBox="0 0 24 24"><path d="M17 9h-1V7a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v8h14v-8a2 2 0 0 0-2-2zm-7-2a2 2 0 0 1 4 0v2h-4V7z"/></svg>Informações seguras e criptografadas</div>
+      </div>
+
+      <div id="step2" class="view">
+        <button class="back" id="back1" type="button">← Voltar</button>
+        <div class="step-title"><span class="step-number">02</span><span class="step-name">Endereço de entrega</span></div>
+        <div class="rule"></div>
+        <div class="field-group"><label>CEP</label><input id="zipCode" class="field" inputmode="numeric" placeholder="CEP"></div>
+        <div class="field-group"><label>Endereço</label><input id="address" class="field" placeholder="Informe o endereço"></div>
+        <div class="field-group"><label>Número</label><input id="number" class="field" placeholder="Número"></div>
+        <div class="field-group"><label>Cidade</label><input id="city" class="field" placeholder="Cidade"></div>
+        <div class="field-group"><label>Bairro</label><input id="neighborhood" class="field" placeholder="Bairro"></div>
+        <div class="field-group"><label>Complemento</label><input id="complement" class="field" placeholder="Complemento do endereço"></div>
+        <div class="field-group"><label>Estado</label><select id="state" class="field"><option value="">Estado</option><option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option><option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MT</option><option>MS</option><option>MG</option><option>PA</option><option>PB</option><option>PR</option><option>PE</option><option>PI</option><option>RJ</option><option>RN</option><option>RS</option><option>RO</option><option>RR</option><option>SC</option><option>SP</option><option>SE</option><option>TO</option></select></div>
+        <button id="toPayment" class="next" type="button">Próxima etapa</button>
+        <div class="legal">Ao clicar em “Comprar agora”, eu concordo com o processamento desta compra e com os termos de uso e política de privacidade aplicáveis.</div>
+        <div class="safe-note"><svg viewBox="0 0 24 24"><path d="M17 9h-1V7a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v8h14v-8a2 2 0 0 0-2-2zm-7-2a2 2 0 0 1 4 0v2h-4V7z"/></svg>Informações seguras e criptografadas</div>
+      </div>
+
+      <div id="step3" class="view">
+        <button class="back" id="back2" type="button">← Voltar</button>
+        <div class="step-title"><span class="step-number">03</span><span class="step-name">Pagamento</span></div>
+        <div class="rule"></div>
+        <div class="payment-choice">
+          <svg viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M144 64c8.8 0 16 7.2 16 16v96c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16V80c0-8.8 7.2-16 16-16h96zM48 32C21.5 32 0 53.5 0 80v96c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48H48zM160 336v96c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16v-96c0-8.8 7.2-16 16-16h96c8.8 0 16 7.2 16 16zM48 288c-26.5 0-48 21.5-48 48v96c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48v-96c0-26.5-21.5-48-48-48H48zM304 64h96c8.8 0 16 7.2 16 16v96c0 8.8-7.2 16-16 16h-96c-8.8 0-16-7.2-16-16V80c0-8.8 7.2-16 16-16z"/></svg>
+          <span>Pix</span>
+        </div>
+        <div class="payment-copy">Ao clicar em “Gerar Pix” será gerado um QR Code e um código Pix Copia e Cola para você realizar o pagamento.</div>
+        <button id="payButton" class="buy" type="button">Comprar agora</button>
+        <div id="feedback" class="feedback"></div>
+        <div class="legal">Ao clicar em “Comprar agora”, eu concordo com o processamento desta compra e com os termos de uso e política de privacidade aplicáveis.</div>
+        <div class="safe-note"><svg viewBox="0 0 24 24"><path d="M17 9h-1V7a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v8h14v-8a2 2 0 0 0-2-2zm-7-2a2 2 0 0 1 4 0v2h-4V7z"/></svg>Informações seguras e criptografadas</div>
+      </div>
+    </section>
+  </div>
+
+  <div class="footer">Checkout seguro para pagamento via Pix.</div>
+</main>
+
+<div id="pixModal" class="modal" aria-hidden="true"><div class="modal-card"><button id="closeModal" class="close">×</button><h2>Pagamento via Pix</h2><p>Escaneie o QR Code ou copie o código Pix abaixo.</p><div id="qr" class="qr"></div><textarea id="pixCode" class="pix-code" readonly></textarea><button id="copyPix" class="copy" type="button">Copiar código Pix</button></div></div>
+
+<script>
+const digits=v=>String(v||'').replace(/\D/g,'');
+const show=id=>{document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})};
+function customer(){const name=document.getElementById('name').value.trim();const email=document.getElementById('email').value.trim();const phone=digits(document.getElementById('phone').value);const taxId=digits(document.getElementById('taxId').value);if(!name||!email||!phone||!taxId)throw new Error('Preencha todos os dados pessoais.');if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))throw new Error('Informe um e-mail válido.');if(taxId.length!==11&&taxId.length!==14)throw new Error('Informe um CPF/CNPJ válido.');if(phone.length<10||phone.length>11)throw new Error('Informe um telefone válido.');return{name,email,phone,taxId}}
+function address(){const zipCode=digits(document.getElementById('zipCode').value);const address=document.getElementById('address').value.trim();const number=document.getElementById('number').value.trim();const city=document.getElementById('city').value.trim();const neighborhood=document.getElementById('neighborhood').value.trim();const complement=document.getElementById('complement').value.trim();const state=document.getElementById('state').value;if(!zipCode||!address||!number||!city||!neighborhood||!state)throw new Error('Preencha todos os campos obrigatórios do endereço.');if(zipCode.length!==8)throw new Error('Informe um CEP válido.');return{zipCode,address,number,city,neighborhood,complement,state}}
+document.getElementById('toAddress').onclick=()=>{try{const c=customer();document.getElementById('summaryEmail').textContent=c.email;show('step2')}catch(e){alert(e.message)}};
+document.getElementById('toPayment').onclick=()=>{try{address();show('step3')}catch(e){alert(e.message)}};
+document.getElementById('back1').onclick=()=>show('step1');
+document.getElementById('back2').onclick=()=>show('step2');
+const modal=document.getElementById('pixModal'),qr=document.getElementById('qr'),pixCode=document.getElementById('pixCode'),feedback=document.getElementById('feedback'),payButton=document.getElementById('payButton');
+payButton.onclick=async()=>{const original=payButton.textContent;try{feedback.textContent='';payButton.disabled=true;payButton.textContent='Gerando Pix...';const body={...customer(),address:address()};const r=await fetch('/api/create-pix',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const data=await r.json().catch(()=>({}));if(!r.ok)throw new Error(data.error||'Não foi possível gerar o Pix.');pixCode.value=data.copypaste;qr.innerHTML='<img src="'+data.qrCode+'" alt="QR Code Pix">';modal.classList.add('open');modal.setAttribute('aria-hidden','false')}catch(e){feedback.textContent=e.message||'Erro ao gerar Pix.'}finally{payButton.disabled=false;payButton.textContent=original}};
+document.getElementById('closeModal').onclick=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true')};
+document.getElementById('copyPix').onclick=async()=>{const b=document.getElementById('copyPix');try{await navigator.clipboard.writeText(pixCode.value)}catch{pixCode.select();document.execCommand('copy')}b.textContent='Código Pix copiado';setTimeout(()=>b.textContent='Copiar código Pix',1600)};
+</script>
+</body>
+</html>
